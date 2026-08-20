@@ -3,6 +3,7 @@ let computerScore = 0;
 
 function getComputerChoice(){
     let choice = Math.random()*3;
+    choice = Math.floor(choice);
         switch (choice){
         case 0:
             choice = "rock";
