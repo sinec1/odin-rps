@@ -72,13 +72,32 @@ function playGame(){
         }
     }
 
-    let round = 1;
-    while (round <=5){
-        let humanChoice = getUserChoice();
-        let computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-        round++;
-    }
+    // let round = 1;
+    // while (round <=5){
+    //     let humanChoice = getUserChoice();
+    //     let computerChoice = getComputerChoice();
+    //     playRound(humanChoice, computerChoice);
+    //     round++;
+    // }
 }
 
-playGame();
+const container = document.querySelector(".container")
+const rockButton = document.getElementById('rock');
+const paperButton = document.getElementById('paper');
+const scissorButton = document.getElementById('scissors');
+
+container.addEventListener('click', (e) => {
+    let target = e.target;
+
+    switch (target.id){
+        case 'rock':
+            playRound('rock', getComputerChoice());
+            break;
+        case 'paper':
+            playRound('paper', getComputerChoice());
+            break;
+        case 'scissors':
+            playRound('scissors', getComputerChoice());    
+    }  
+});
+
