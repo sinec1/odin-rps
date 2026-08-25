@@ -15,12 +15,6 @@ function getComputerChoice(){
     return choice;
 }
 
-function getUserChoice(){
-    let choice = prompt("Please choose between rock, paper, or scissors! (no spaces!)");
-    choice = choice.toLowerCase();
-    return choice;
-}
-
 function playRound(humanChoice, computerChoice){
         switch (humanChoice) {
             case "scissors":
@@ -68,6 +62,12 @@ function playRound(humanChoice, computerChoice){
         }
         hScore.textContent = `Human Score: ${humanScore}`;
         cScore.textContent = `Computer Score: ${computerScore}`;
+        if (humanScore === 5){
+            gameResult.textContent = `Human player has won the game!`
+        }
+        else if (computerScore === 5){
+            gameResult.textContent = `Computer player has won the game!`;
+        }
     }
 
 const container = document.getElementById("container")
@@ -90,12 +90,15 @@ cScore.textContent = `Computer Score: ${computerScore}`;
 const roundResult = document.createElement("div");
 roundResult.textContent = `No games played!`;
 
+const gameResult = document.createElement("div");
+gameResult.textContent = ``;
+
 
 scoreContainer.appendChild(hScore);
 scoreContainer.appendChild(cScore);
 container.appendChild(scoreContainer);
 container.appendChild(roundResult);
-
+container.appendChild(gameResult);
 
 container.addEventListener('click', (e) => {
     let target = e.target;
