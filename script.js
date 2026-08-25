@@ -81,10 +81,27 @@ function playGame(){
     // }
 }
 
-const container = document.querySelector(".container")
-const rockButton = document.getElementById('rock');
-const paperButton = document.getElementById('paper');
-const scissorButton = document.getElementById('scissors');
+const container = document.getElementById("container")
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorButton = document.getElementById("scissors");
+
+let humanScore = 0;
+let computerScore = 0;
+
+const scoreContainer = document.createElement("div");
+scoreContainer.classList.add("Scores");
+
+const hScore = document.createElement("div");
+hScore.textContent = `Human Score: ${humanScore}`;
+
+const cScore = document.createElement("div");
+cScore.textContent = `Computer Score: ${computerScore}`;
+
+scoreContainer.appendChild(hScore);
+scoreContainer.appendChild(cScore);
+container.appendChild(scoreContainer);
+
 
 container.addEventListener('click', (e) => {
     let target = e.target;
@@ -97,7 +114,8 @@ container.addEventListener('click', (e) => {
             playRound('paper', getComputerChoice());
             break;
         case 'scissors':
-            playRound('scissors', getComputerChoice());    
+            playRound('scissors', getComputerChoice());
+            break;
     }  
 });
 
